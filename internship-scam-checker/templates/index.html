@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Internship Scam Checker — Case File</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="desk">
+
+  <header class="folder-tab">
+    <div class="tab-label">
+      <span class="tab-eyebrow">CASE FILE</span>
+      <h1>Internship Scam Checker</h1>
+    </div>
+    <p class="tab-sub">Paste the offer. We annotate the evidence. You decide with your eyes open.</p>
+  </header>
+
+  <nav class="mode-switch" role="tablist">
+    <button class="mode-btn active" data-mode="message" role="tab" aria-selected="true">Message / Email</button>
+    <button class="mode-btn" data-mode="call" role="tab" aria-selected="false">Phone Call Checklist</button>
+  </nav>
+
+  <!-- ===================== MESSAGE MODE ===================== -->
+  <section id="message-mode" class="panel">
+    <div class="grid">
+
+      <div class="paper input-paper">
+        <div class="paper-header">
+          <span class="paper-label">EXHIBIT A — SUBMITTED TEXT</span>
+          <div class="channel-select">
+            <label><input type="radio" name="channel" value="email" checked> Email</label>
+            <label><input type="radio" name="channel" value="sms"> SMS / Text</label>
+            <label><input type="radio" name="channel" value="whatsapp"> WhatsApp</label>
+          </div>
+        </div>
+        <textarea id="input-text" placeholder="Paste the internship email, text message, or WhatsApp chat here, exactly as you received it..."></textarea>
+        <div class="input-footer">
+          <button id="analyze-btn" class="btn-primary">Analyze Message</button>
+          <button id="sample-btn" class="btn-ghost">Load a sample</button>
+        </div>
+      </div>
+
+      <div class="paper result-paper" id="result-paper">
+        <div class="paper-header">
+          <span class="paper-label">EXHIBIT B — FINDINGS REPORT</span>
+        </div>
+        <div id="result-empty" class="empty-state">
+          <p>No exhibit analyzed yet.</p>
+          <p class="empty-sub">Submit a message on the left to generate a findings report.</p>
+        </div>
+        <div id="result-content" class="result-content hidden">
+          <div class="stamp-zone">
+            <div id="stamp" class="stamp">VERIFIED</div>
+          </div>
+
+          <div class="score-row">
+            <div class="score-dial">
+              <svg viewBox="0 0 120 70" class="dial-svg">
+                <path d="M10,65 A55,55 0 0,1 110,65" class="dial-track"/>
+                <path id="dial-fill" d="M10,65 A55,55 0 0,1 110,65" class="dial-fill"/>
+              </svg>
+              <div class="dial-number"><span id="score-number">0</span><span class="dial-pct">/100</span></div>
+              <div class="dial-label">RISK SCORE</div>
+            </div>
+            <div class="score-breakdown">
+              <p><span class="bd-label">Rule-based signals</span><span id="rule-score-txt">—</span></p>
+              <p><span class="bd-label">ML classifier</span><span id="ml-score-txt">—</span></p>
+              <p class="advice" id="advice-txt"></p>
+            </div>
+          </div>
+
+          <div class="annotated-wrap">
+            <span class="paper-label small">ANNOTATED TEXT</span>
+            <div id="annotated-text" class="annotated-text"></div>
+          </div>
+
+          <div class="findings-wrap">
+            <span class="paper-label small">RED FLAGS LOGGED</span>
+            <ul id="findings-list" class="findings-list"></ul>
+          </div>
+
+          <div class="findings-wrap" id="positive-wrap">
+            <span class="paper-label small">GOOD SIGNS NOTED</span>
+            <ul id="positive-list" class="findings-list positive"></ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CALL MODE ===================== -->
+  <section id="call-mode" class="panel hidden">
+    <div class="paper checklist-paper">
+      <div class="paper-header">
+        <span class="paper-label">EXHIBIT C — LIVE CALL CHECKLIST</span>
+      </div>
+      <p class="checklist-intro">Voice calls can't be scanned automatically here — but scammers follow the same script every time. Answer these seven questions during or right after the call. Each "yes" is logged as a red flag on the case board.</p>
+      <ul id="call-checklist" class="checklist"></ul>
+      <div class="call-score-wrap">
+        <div class="call-score">
+          <span id="call-flag-count">0</span> of <span id="call-flag-total">7</span> red flags confirmed
+        </div>
+        <div id="call-verdict" class="call-verdict"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="desk-footer">
+    Built as a student project · Not a substitute for verifying an employer directly through official channels.
+  </footer>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

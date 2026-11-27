@@ -167,8 +167,9 @@ internship-scam-checker/
 ### Clone the repository
 
 ```bash
-git clone https://github.com/FulberRenika/internship-scam-check.git
-cd internship-scam-check/internship-scam-checker
+git clone https://github.com/avantikaab1507/Internship-Spam-Checker.git
+cd Internship-Spam-Checker/internship-scam-checker
+
 ```
 
 ### Create a virtual environment
@@ -242,5 +243,5 @@ Users should independently verify organisations and avoid sharing sensitive info
 
 ---
 
-**Developed by:** Fulber Renika C R  
-**GitHub:** https://github.com/FulberRenika
+**Developed by:** Avantikaa Balamurali & Fulber Renika C R  
+**GitHub:** https://github.com/avantikaab1507 | https://github.com/FulberRenika
